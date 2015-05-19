@@ -80,9 +80,11 @@ class LeapListener(Leap.Listener):
 			x = hand.palm_position[0]
 			z = hand.palm_position[2]
 
-			x_rescaled = int(rescale(x, -30., 30., 1, 255))
-			y_rescaled = int(rescale((x + z), -60, 60, 1, 255))
-			z_rescaled = int(rescale(z, -30, 30., 1, 255))
+			print(x)
+
+			x_rescaled = int(rescale(x, -50., 50., 1, 255))
+			y_rescaled = int(rescale((z + x), -50, 100, 1, 255))
+			z_rescaled = int(rescale(z, 5, 100, 1, 255))
 			
 			NewCoords = "c" + chr(x_rescaled) + chr(y_rescaled) + chr(z_rescaled)
 			NewCoords_read = "c" +  " " + str(x_rescaled) + " " +  str(y_rescaled) + " " +  str(z_rescaled)
